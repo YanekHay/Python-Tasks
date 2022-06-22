@@ -148,16 +148,10 @@
 # print(indexes)    
 
 ## կա շախմատի տախտակ, պետքա ասի որ սյան ու տողի վրա պետքա թագուհին դրվի
+    
 
 
 
-
-# Calculator
-inp = input("Enter an expression >>> ")
-operators = "+-*/^%"
-unary = "+-"
-#Remove spaces
-inp = inp.replace(" ","")
 
 inFixExpression = []
 token = ""
