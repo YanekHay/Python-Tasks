@@ -147,42 +147,110 @@
 
 # print(indexes)    
 
+
+# Calculator
+# inp = input("Enter an expression >>> ")
+# operators = "+-*/^%"
+# unary = "+-"
+# #Remove spaces
+# inp = inp.replace(" ","")
+
+# inFixExpression = []
+# token = ""
+# print(inp)
+
+# ## Tokenizing a string 
+# for i in inp:    
+#     if i in operators:
+#         if token!="":
+#             inFixExpression.append(token)
+#         inFixExpression.append(i)
+#         token = ""
+#         continue        
+#     token = f"{token}{i}"    
+# inFixExpression.append(token)   
+# print(inFixExpression)
+
+# ## Finding unar operators
+# print("".join(inFixExpression))
+# if(inFixExpression[0] in unary):
+#     inFixExpression[0] = "u" + inFixExpression[0]
+    
+# for i in range(1,len(inFixExpression)):
+#     if (inFixExpression[i-1] in operators) and (inFixExpression[i] in unary):
+#         inFixExpression[i] = "u" + inFixExpression[i]
+# print(inFixExpression)
+
+# #get left num
+# summary = 0
+# for i in range(len(inFixExpression)):
+#     if(inFixExpression[i].isdigit):
+#         num = int(inFixExpression[i]) if(i==0 or inFixExpression[i-1]=="u+") else -int(inFixExpression[i])
+#         print(num)
+# # leftNum = 
+######################   QUEENS   ######################
 ## կա շախմատի տախտակ, պետքա ասի որ սյան ու տողի վրա պետքա թագուհին դրվի
+
+# def printTable(chess):
+#     for i in range(0,len(chess)):
+#         print()
+#         for j in range(0,len(chess[i])):
+#             print(f" {chess[i][j]:<3} ",end="")
+#     print()
+            
+# def placeQueen(posX,posY,num):    
+#     for i in range(0,8):
+#         for j in range(0,8):
+#             if i == posX and j == posY:
+#                 chesstable[i][j] = f"Q{num}"
+#             elif (i+j == (posX+posY) or posX == i or posY == j or i-j == posX-posY) and chesstable[i][j]==0 :
+#                 chesstable[i][j] = 1
+
+chesstable = []
+leftCoords = []
+queenCount = 0
+
+def printTable(chess):
+    for i in range(0,len(chess)):
+        print(f" {chr(int(chess[i][0])+97)+str(int(chess[i][-1])+1):<3} ",end="")
+    print("\n\n")
+  
+def placeQueen(posX,posY):
+    global queenCount,leftCoords,floors
+    if len(leftCoords) ==0:
+        return leftCoords
+    queenCount+=1
+    newCoords = []   
+    printTable(leftCoords) 
+    for i in range(0,len(leftCoords)):
+            row = int(leftCoords[i][0])
+            col = int(leftCoords[i][-1])
+            if not ((row == posX and col == posY) or ((row+col == (posX+posY) or posX == row or posY == col or row-col == posX-posY))):
+               newCoords.append(leftCoords[i])
+    layers.append(newCoords)        
+    #print(newCoords[0][0],newCoords[0][-1])
+    #leftCoords = placeQueen(int(newCoords[0][0]),int(newCoords[0][-1]))
+       
+    leftCoords = newCoords
+    for i in range(len(newCoords)):
+        return placeQueen(int(newCoords[i][0]),int(newCoords[0][-1]))
     
 
 
+                
+chesstable = []
 
+for i in range(0,8):
+    for j in range(0,8):
+        chesstable.append(f"{i}:{j}")
 
-inFixExpression = []
-token = ""
-print(inp)
+leftCoords = chesstable
+#printTable(chesstable)
+a = placeQueen(5,4)
+q = 1
+print(floors)
+print("\n\n")
+print(queenCount)        
 
-## Tokenizing a string 
-for i in inp:    
-    if i in operators:
-        if token!="":
-            inFixExpression.append(token)
-        inFixExpression.append(i)
-        token = ""
-        continue        
-    token = f"{token}{i}"    
-inFixExpression.append(token)   
-print(inFixExpression)
-
-## Finding unar operators
-print("".join(inFixExpression))
-if(inFixExpression[0] in unary):
-    inFixExpression[0] = "u" + inFixExpression[0]
-    
-for i in range(1,len(inFixExpression)):
-    if (inFixExpression[i-1] in operators) and (inFixExpression[i] in unary):
-        inFixExpression[i] = "u" + inFixExpression[i]
-print(inFixExpression)
-
-#get left num
-summary = 0
-for i in range(len(inFixExpression)):
-    if(inFixExpression[i].isdigit):
-        num = int(inFixExpression[i]) if(i==0 or inFixExpression[i-1]=="u+") else -int(inFixExpression[i])
-        print(num)
-# leftNum = 
+###############################
+#կնոպկով հեռախոսի խնդիրը վիդեոյից

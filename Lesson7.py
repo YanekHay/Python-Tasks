@@ -2,7 +2,7 @@
 # mylist = [i for i in range(15) if i%2 ==0]
 # print(mylist)
 
-### Task No. 110
+### Task No. 110 Sorted Order
 # mylist = []
 # while True:
 #     inp = int(input("Enter a number >>> "))
@@ -13,7 +13,7 @@
 # print(mylist)
 # print(mylist)
 
-### Task No. 111
+### Task No. 111 Reverse Order
 # mylist = []
 # while True:
 #     inp = int(input("Enter a number >>> "))
@@ -25,7 +25,7 @@
 # for i in mylist:
 #     print (i)
 
-### Task No. 112   
+### Task No. 112 Remove Outliers
 # mylist = []
 # while True:
 #     inp = int(input("Enter a number >>> "))
@@ -47,7 +47,7 @@
 #     print(mylist)
 #     del mylist[len(mylist)-1]
     
-### Task No. 113
+### Task No. 113 Avoiding Duplicates
 
 # rightOrder = ["first","second","third","fourth","fifth","sixth","seventh"]
 
@@ -64,7 +64,7 @@
 
 # print(userInput)
 
-### Task No. 114
+### Task No. 114 Negatives,Zeros and Positives
 # userInput = []
 
 # negatives = []
@@ -88,7 +88,7 @@
 
 # print(result)
 
-### Task No. 115
+### Task No. 115 List of Proper Divisors
 # import math
 # divisors = []
 ## Getting input
@@ -110,7 +110,7 @@
 # divisors.sort()
 # print(divisors)   
 
-### Task No. 116
+### Task No. 116 Perfect Numbers
 # import math
 
 # perfects = []
@@ -132,14 +132,14 @@
 
 # print(perfects)
 
-### Task No. 117
+### Task No. 117 Only theWords
 # inp = input("Enter some text >>> ")
 # while inp=="":
 #     inp = input("Enter some text >>> ")
 # words = inp.split(" ")
 # print (words)
 
-### Task No. 118
+### Task No. 118 Word byWord Palindromes
 # text = input("Enter some text >>> ")
 # punctuation = "!@#$%^&*()_+-=`[]{};':,./<>?"
 # for i in punctuation:
@@ -153,7 +153,7 @@
 # else:
 #     print("Not Panlindrome")
 
-### Task No. 119
+### Task No. 119 Below and Above Average
 # values = []
 # avg = 0
 # while True:
@@ -181,7 +181,7 @@
 
 # print("Values less than average value >>> ",less,"\nAverage values entered >>> ", avgs if len(avgs)>0 else "[none]")        
 
-### Task No. 120
+### Task No. 120 Formatting a List
 # wordArr = []
 # while True:
 #     word = input("Enter a word >>> ")
@@ -196,7 +196,7 @@
 #         print(wordArr[i],end = " and " if i == len(wordArr)-2 else ", ")
 #     print(f"{wordArr[-1]}")
 
-### Task No. 121
+### Task No. 121 Random Lottery Numbers
 # import random
 
 # ticket = []
@@ -213,7 +213,7 @@
 # ticket.sort(reverse=True)
 # print("Descending >>>",ticket)
 
-### Task No. 122
+### Task No. 122 Pig Latin
 # punctuation = "!@#$%^&*()_+-=`[]{};':,./<>?"
 # vowels = "auieo"
 
@@ -241,7 +241,8 @@
 
 # print(pigLat)
 
-### Task No. 123
+
+### Task No. 123 Pig Latin Improved
 # punctuation = "!@#$%^&*()_+-=`[]{};':,./\|~<>?"
 # vowels = "auieo"
 
@@ -266,7 +267,9 @@
 
 # finText = "".join(pigLat)
 # print(finText)
-### Task No. 124
+
+
+### Task No. 124 Line of Best Fit
 # xArr=[]
 # yArr=[]
 # while True:
@@ -301,7 +304,7 @@
 
 # print(f"y = {m:.2f}x + {b:.2f}")
 
-### Task No. 125
+### Task No. 125 Shuffling a Deck of Cards
 # ("spades", "hearts", "diamonds", "clubs")
 # Ten, Jack, Queen, King, Ace
 # import random 
@@ -326,7 +329,7 @@
 # print("*************Shuffled*************\n",deck)
 
 
-### Task No. 126
+### Task No. 126 Dealing Hands of Cards
 # import random 
 
 # suits = ("s", "h", "d", "c")
@@ -357,7 +360,7 @@
 # print(deck,"\n*********************************\n",hands)   
 
 
-### Task No. 127
+### Task No. 127 Is a List already in Sorted Order?
 # import random
 # lst  = []
 # for i in range(0,random.randint(5,30)):
@@ -367,7 +370,7 @@
 # print("Given list is sorted by ascending order" if lst==sortTest else \
 #       "Given list is sorted by descending order" if lst==sortTest[::-1] else "list is not sorted" )
 # print(lst)
-### Task No. 128
+### Task No. 128 Count the Elements
 # import random
 # items = []
 # for i in range(0,random.randint(5,30)):
@@ -379,7 +382,7 @@
 #     if i>min and i<max:
 #         q+=1
 # print(items,"\nThe count of items is >>> ",q)
-### Task No. 129
+### Task No. 129 Tokenizing a String
 # inp = input("Enter an expression >>> ")
 # operators = "+-*/=()^%><"
 # #Remove spaces
@@ -400,7 +403,7 @@
 # tokenArr.append(token)   
 # print(tokenArr)
 
-### Task No. 130
+### Task No. 130 Unary and Binary Operators
 ## V 1.0
 # expression = ["-","1","+","5","*","+","(","-","5","+","2",")"]
 # operators = "/*-+!@#$%^&(_<>?|"
@@ -422,7 +425,7 @@
 
 
 
-### Task No. 131
+### Task No. 131 Infix to Postfix
 # inp = input("Enter an expression >>> ")
 # operators = "+-*/=(^%><?|"
 # unary = "+-"
@@ -469,73 +472,113 @@
 
 # V 2.0
 
-inp = input("Enter an expression >>> ")
-operators = "+-*/=(^%><?|"
-unary = "+-"
-#Remove spaces
-inp = inp.replace(" ","")
-inFixExpression = []
-token = ""
-print(inp)
+# inp = input("Enter an expression >>> ")
+# operators = "+-*/=(^%><?|"
+# unary = "+-"
+# #Remove spaces
+# inp = inp.replace(" ","")
+# inFixExpression = []
+# token = ""
+# print(inp)
 
-## Tokenizing a string 
-for i in inp:    
-    if i in operators:
-        if token!="":
-            inFixExpression.append(token)
-        inFixExpression.append(i)
-        token = ""
-        continue        
-    token = f"{token}{i}"    
-inFixExpression.append(token)   
-print(inFixExpression)
+# ## Tokenizing a string 
+# for i in inp:    
+#     if i in operators:
+#         if token!="":
+#             inFixExpression.append(token)
+#         inFixExpression.append(i)
+#         token = ""
+#         continue        
+#     token = f"{token}{i}"    
+# inFixExpression.append(token)   
+# print(inFixExpression)
 
-## Finding unar operators
-print("".join(inFixExpression))
-if(inFixExpression[0] in unary):
-    inFixExpression[0] = "u" + inFixExpression[0]
+# ## Finding unar operators
+# print("".join(inFixExpression))
+# if(inFixExpression[0] in unary):
+#     inFixExpression[0] = "u" + inFixExpression[0]
     
-for i in range(1,len(inFixExpression)):
-    if (inFixExpression[i-1] in operators) and (inFixExpression[i] in unary):
-        inFixExpression[i] = "u" + inFixExpression[i]
-print(inFixExpression)
+# for i in range(1,len(inFixExpression)):
+#     if (inFixExpression[i-1] in operators) and (inFixExpression[i] in unary):
+#         inFixExpression[i] = "u" + inFixExpression[i]
+# print(inFixExpression)
 
-###
-postFixOperators = []
-postFixExpression = []
+# ###
 
-for i in range(len(inFixExpression)):
-    print(postFixOperators)
-    if inFixExpression[i].isdigit():
-        postFixExpression.append(inFixExpression[i])
-    else:
-        while len(postFixOperators)!=0 and postFixOperators[-1]!="(" and inFixExpression[i-1]<postFixOperators[-2]:
-            postFixExpression.append(postFixOperators[-1])
-            del postFixOperators[-1]
-        if inFixExpression[i]=="(":
-            postFixOperators.append(inFixExpression[i])
-        elif inFixExpression[i]==")":
-            while postFixOperators[-1]!="(":
-                postFixExpression.append(postFixOperators[-1])
-                del postFixOperators[-1]
-            while postFixOperators!=[] :
-                postFixExpression.append[postFixOperators[-1]]
-                del postFixOperators[-1]           
+# postFixOperators = []
+# postFixExpression = []
 
-print(postFixExpression)    
+# for i in range(len(inFixExpression)):
+#     print(postFixOperators)
+#     if inFixExpression[i].isdigit():
+#         postFixExpression.append(inFixExpression[i])
+#     else:
+#         while len(postFixOperators)!=0 and postFixOperators[-1]!="(" and inFixExpression[i-1]<postFixOperators[-2]:
+#             postFixExpression.append(postFixOperators[-1])
+#             del postFixOperators[-1]
+#         if inFixExpression[i]=="(":
+#             postFixOperators.append(inFixExpression[i])
+#         elif inFixExpression[i]==")":
+#             while postFixOperators[-1]!="(":
+#                 postFixExpression.append(postFixOperators[-1])
+#                 del postFixOperators[-1]
+#             while postFixOperators!=[] :
+#                 postFixExpression.append[postFixOperators[-1]]
+#                 del postFixOperators[-1]           
+
+# print(postFixExpression)    
 
 
-### Task No. 132
+### Task No. 132 Evaluate Postfix
 #----------------------------------------------------
-### Task No. 133
-# larger = [1,2,3,4]
-# smaller = [1,2]
+### Task No. 133 Does a List Contain a Sublist?
+# largeList = [1,2,3,4]
+# smallList = [1,3]
 
-# for i in range(len(larger)):
-#     for j in range(len(smaller)):
+# for i in range(len(largeList)):
+#     if largeList[i:len(smallList)]==smallList:
+#         print(">>>> IS SUBLIST <<<<")
+#         quit()
+
+# print(">>>> IS NOT A SUBLIST <<<<")  
+      
+# ### Task No. 134 Generate All Sublists of a List
+# list = []
+# while True:
+#     inp = (input("Input a list item >>> "))
+#     if inp == "":
+#         break
+#     list.append(inp)
+
+# sublists = []
+# for i in range(1,len(list)+1):
+#     sub = []
+#     for j in range(0,len(list)+1-i):
+#         sub.append(list[j:j+i])
         
-### Task No. 134
-### Task No. 135
+#     sublists.append(sub)   
+    
+# print(sublists) 
+### Task No. 135 The Sieve of Eratosthenes
+# lim = int(input("Enter the limit >>> "))
+# nums = []
+# for i in range(lim):
+#     nums.append(i)
+
+# nums[1] = 0
+# p=2
+# while p<lim:
+#     for i in range(p*2,lim,p):
+#         nums[i] = 0
+    
+#     p = p+1
+#     while p<lim and nums[p]==0:
+#         p=p+1
+        
+# for i in nums:
+#     if i!=0:
+#         print(i,end = "  ")
+    
 
 #######################################  123, 131, ...
 

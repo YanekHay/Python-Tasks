@@ -6,7 +6,7 @@
 #     password = input("Enter a password >>> ")
 #     synbCount = 0
 #     numCount = 0
-#     if(password[0].isupper()):
+#     if(password[0].isupper() && len(password)>=8):
 #         for i in range(len(password)):
 #             if password[i] in symbols:
 #                 synbCount+=1
@@ -57,3 +57,5 @@
 # for i in range(0,len(names)):
 #     print(f"{names[i]}---{names[(i+1)%len(names)]}")
 
+link = "https://www.youtube.com/watch?v=4duqI8WyfqE"
+print(link[link.find("=")+1:])
