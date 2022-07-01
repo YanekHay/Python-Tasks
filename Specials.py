@@ -206,51 +206,280 @@
 #             elif (i+j == (posX+posY) or posX == i or posY == j or i-j == posX-posY) and chesstable[i][j]==0 :
 #                 chesstable[i][j] = 1
 
-chesstable = []
-leftCoords = []
-queenCount = 0
+# chesstable = []
+# leftCoords = []
+# queenCount = 0
 
-def printTable(chess):
-    for i in range(0,len(chess)):
-        print(f" {chr(int(chess[i][0])+97)+str(int(chess[i][-1])+1):<3} ",end="")
-    print("\n\n")
+# def printTable(chess):
+#     for i in range(0,len(chess)):
+#         print(f" {chr(int(chess[i][0])+97)+str(int(chess[i][-1])+1):<3} ",end="")
+#     print("\n\n")
   
-def placeQueen(posX,posY):
-    global queenCount,leftCoords,floors
-    if len(leftCoords) ==0:
-        return leftCoords
-    queenCount+=1
-    newCoords = []   
-    printTable(leftCoords) 
-    for i in range(0,len(leftCoords)):
-            row = int(leftCoords[i][0])
-            col = int(leftCoords[i][-1])
-            if not ((row == posX and col == posY) or ((row+col == (posX+posY) or posX == row or posY == col or row-col == posX-posY))):
-               newCoords.append(leftCoords[i])
-    layers.append(newCoords)        
-    #print(newCoords[0][0],newCoords[0][-1])
-    #leftCoords = placeQueen(int(newCoords[0][0]),int(newCoords[0][-1]))
+# def placeQueen(posX,posY):
+#     global queenCount,leftCoords,floors
+#     if len(leftCoords) ==0:
+#         return leftCoords
+#     queenCount+=1
+#     newCoords = []   
+#     printTable(leftCoords) 
+#     for i in range(0,len(leftCoords)):
+#             row = int(leftCoords[i][0])
+#             col = int(leftCoords[i][-1])
+#             if not ((row == posX and col == posY) or ((row+col == (posX+posY) or posX == row or posY == col or row-col == posX-posY))):
+#                newCoords.append(leftCoords[i])
+#     layers.append(newCoords)        
+#     #print(newCoords[0][0],newCoords[0][-1])
+#     #leftCoords = placeQueen(int(newCoords[0][0]),int(newCoords[0][-1]))
        
-    leftCoords = newCoords
-    for i in range(len(newCoords)):
-        return placeQueen(int(newCoords[i][0]),int(newCoords[0][-1]))
+#     leftCoords = newCoords
+#     for i in range(len(newCoords)):
+#         return placeQueen(int(newCoords[i][0]),int(newCoords[0][-1]))
     
 
 
                 
-chesstable = []
+# chesstable = []
 
-for i in range(0,8):
-    for j in range(0,8):
-        chesstable.append(f"{i}:{j}")
+# for i in range(0,8):
+#     for j in range(0,8):
+#         chesstable.append(f"{i}:{j}")
 
-leftCoords = chesstable
-#printTable(chesstable)
-a = placeQueen(5,4)
-q = 1
-print(floors)
-print("\n\n")
-print(queenCount)        
+# leftCoords = chesstable
+# #printTable(chesstable)
+# a = placeQueen(5,4)
+# q = 1
+# print(floors)
+# print("\n\n")
+# print(queenCount)        
 
 ###############################
-#կնոպկով հեռախոսի խնդիրը վիդեոյից
+#կնոպկով հեռախոսի խնդիրը 
+# buttons = {
+#     '1':"",
+#     '2':"ABC",
+#     '3':"DEF",
+#     '4':"GHI",
+#     '5':"JKL",
+#     '6':"MNO",
+#     '7':"PQRS",
+#     '8':"TUV",
+#     '9':"WXYZ",
+#     '0':" ",
+#     '*':"*+",
+#     "#":"#"    
+# }
+
+
+# inp = input("Enter the digits >>> ")
+# depth = len(inp)
+
+# counters = [0 for i in range(0,depth)]
+
+# def loopRecursion(level):
+#     global counters
+#     if level == depth:
+#         generateVariant()
+#     else:
+#         for counter in range(len(buttons[inp[level]])):
+#             counters[level] = counter
+#             loopRecursion(level+1)
+
+# def generateVariant():
+#     global inp,counters
+#     variant = ""
+#     i=0
+#     for level in counters:        
+#         variant += buttons[inp[i]][level]
+#         i+=1
+#     print(variant)
+            
+    
+# loopRecursion(0)
+
+# print(round(0.299238 * (int(inp)*3+64) - 17.763365)+63)\
+    
+# The longest prefix
+
+# strs = ["reflower","flow","flight"]
+
+# strs.sort(key=len)
+# print(strs)
+# pref = strs[0].lower()
+
+
+# for i in range(0,len(strs)+1): 
+#     b=True
+#     for j in range(1,len(strs)):         
+#         if pref != strs[j][:len(pref)].lower():
+#             print(strs[j][:len(pref)].lower(),pref)
+#             b=False
+#             break
+#     if b==False:
+#         print(len(pref))
+#         pref = pref[:len(pref)-1] if len(pref)>1 else ""
+        
+# print(pref)    
+
+# LeetCode 33. Search in Rotated Sorted Array
+# nums = [4,5,6,7,0,1,2,8]
+# target = 0
+# correct = []
+
+# if target in nums:
+#     correct = nums[nums.index(target):]
+#     print(nums[nums.index(target):])
+#     correct.extend(nums[:nums.index(target)])
+#     sorted = correct[:]
+#     sorted.sort()
+#     print(sorted)
+#     if sorted==correct:
+#         print(nums.index(target))
+#     else:
+#         print(-1)
+# else:
+#     print(-1)
+    
+        
+
+# Leetcode 8. String to Integer
+
+# class Solution:
+#     def myAtoi(s: str) -> int:
+#         startInd = -1
+#         letters = "abcdefghijklmnopqrstuvwxyz."
+#         for i in range(len(s)):
+#             if s[i].isdigit():
+#                 startInd = i
+#                 break
+#         if startInd>=0:
+#             for i in range(0,startInd):
+#                 if s[i] in letters:
+#                     return(0)
+#             number = ""
+#             if startInd>0 and (s[startInd-1]=="-" or  s[startInd-1]=="+")  :
+#                 if startInd>1 and (s[startInd-2]=="-" or  s[startInd-2]=="+"):
+#                     return 0
+#                 else:
+#                     number+=s[startInd-1]
+#             elif not("+" in s[:startInd] or "-" in s[:startInd]):
+#                 number = ""
+#             else:
+#                 return 0
+#             while startInd<len(s) and s[startInd].isdigit():
+                
+#                 number+=s[startInd]
+#                 startInd+=1
+#             number = int(number)
+#             if number>2**31-1:
+#                 return 2**31-1
+#             elif number<-(2**31):
+#                 return -(2**31)
+#             else:
+#                 return(number)
+#         else:
+#             return(0)
+        
+
+# print(Solution.myAtoi(input("Enter a text >>> ")))
+
+#LeetCode 31. Next Permutation
+# arr = [1,2,3]
+# out = arr[:]
+# sortedDesc = arr[:]
+# sortedDesc.sort(reverse=True)
+# if sorted == arr:
+#     print(arr)
+# else:
+#     while int("".join(out)) < int("".join(out)):
+#         for i in range(len(out)):
+
+# nums = [2,3,4,5,6,8,7,9,80,11,9,15,69]
+# arr =  [1,5,6,4,5,5,5]
+# cpy = arr[:]
+
+# num = 0
+# for i in arr:
+#     num = num*10+i
+# print(num)
+    
+# ### Getting all numbers
+# numbers = []
+# i=len(arr)-1
+# it = 0
+# while True:
+    
+#     arrStr = []
+#     for j in arr:
+#         arrStr.append(str(j))    
+#     c = arr[i]
+#     arr[i] = arr[i-1]
+#     arr[i-1] = c
+#     numbers.append(int("".join(arrStr)))
+#     if arr==cpy and it>=1:
+#         break
+#     if i>(1-len(arr)):
+#         i = (i-1)
+        
+#     else:
+#         it+=1
+#         i=len(arr)-1
+    
+
+# myset = set(numbers)
+# print(myset.get)
+# print (myset)
+# print(myset[(numbers.index(num)+1)%len(myset)])
+
+
+# 01111011      123 9
+# 10000100      132 81
+# 11010101      213 18
+# 11100111      231 81
+# 000100111000  312 9
+# 000101000001  321
+#1234 9  
+#1243 81
+#1324 18
+#1342 81
+#1423 9
+#1432 711
+#2134 9
+#2143 171
+#2314 27
+#2341
+
+
+# from math import factorial
+
+
+# def calcSumFormula(length):
+#     formula_sum = 0
+#     for i in range(length-1,-1,-1):
+#         formula_sum += pow(10,i)
+#     print(formula_sum)
+#     formula_sum = (length * (length + 1) / 2) * formula_sum * factorial(length - 1)
+#     print(formula_sum)
+#     return formula_sum
+
+# calcSumFormula(4)
+list = [1,3,2]
+
+class Solution:
+    def nextPermutation(nums)->None:
+        pointer=0
+        length=len(nums)
+        if length<=2:
+            return nums.reverse()
+        pointer=length-2
+        while(pointer>=0 and nums[pointer]>=nums[pointer+1]):
+            pointer-=1
+        if pointer==-1:
+            return nums.reverse()
+        for i in range(length-1,pointer,-1):
+            if nums[pointer]<nums[i]:
+                nums[pointer],nums[i]=nums[i],nums[pointer]
+                break
+
+        nums[pointer+1:]=reversed( nums[pointer+1:])
+        print(nums)
+Solution.nextPermutation(list)
