@@ -449,37 +449,51 @@
 #2341
 
 
-# from math import factorial
+# list = [1,3,2]
+
+# class Solution:
+#     def nextPermutation(nums)->None:
+#         pointer=0
+#         length=len(nums)
+#         if length<=2:
+#             return nums.reverse()
+#         pointer=length-2
+#         while(pointer>=0 and nums[pointer]>=nums[pointer+1]):
+#             pointer-=1
+#         if pointer==-1:
+#             return nums.reverse()
+#         for i in range(length-1,pointer,-1):
+#             if nums[pointer]<nums[i]:
+#                 nums[pointer],nums[i]=nums[i],nums[pointer]
+#                 break
+
+#         nums[pointer+1:]=reversed( nums[pointer+1:])
+#         print(nums)
+# Solution.nextPermutation(list)
+
+#### Print all possible permulations of this list
+myList = [7,4,5,6,15]
+#[4,5,6,7,15] 456
+arr = myList[:]
+arr.sort()
+ref = arr[:]
 
 
-# def calcSumFormula(length):
-#     formula_sum = 0
-#     for i in range(length-1,-1,-1):
-#         formula_sum += pow(10,i)
-#     print(formula_sum)
-#     formula_sum = (length * (length + 1) / 2) * formula_sum * factorial(length - 1)
-#     print(formula_sum)
-#     return formula_sum
+i=len(arr)-1
+it = 0
+q = 0
+while True:
+    c = arr[i]
+    arr[i] = arr[i-1]
+    arr[i-1] = c
+    q+=1
+    print(arr)
+    if arr==ref and it>=1:
+        break
+    if i>(1-len(arr)):
+        i = (i-1)
+    else:
+        it+=1
+        i=len(arr)-1
 
-# calcSumFormula(4)
-list = [1,3,2]
-
-class Solution:
-    def nextPermutation(nums)->None:
-        pointer=0
-        length=len(nums)
-        if length<=2:
-            return nums.reverse()
-        pointer=length-2
-        while(pointer>=0 and nums[pointer]>=nums[pointer+1]):
-            pointer-=1
-        if pointer==-1:
-            return nums.reverse()
-        for i in range(length-1,pointer,-1):
-            if nums[pointer]<nums[i]:
-                nums[pointer],nums[i]=nums[i],nums[pointer]
-                break
-
-        nums[pointer+1:]=reversed( nums[pointer+1:])
-        print(nums)
-Solution.nextPermutation(list)
+print(it)
