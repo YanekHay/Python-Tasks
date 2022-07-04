@@ -517,5 +517,3 @@
 # arr.sort()
 # print(arr)
 # print(find(num,arr,start,end))
-print("Why is not working?")
-print("This is a Test")
