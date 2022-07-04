@@ -476,24 +476,27 @@ myList = [7,4,5,6,15]
 #[4,5,6,7,15] 456
 arr = myList[:]
 arr.sort()
-ref = arr[:]
 
+depth = len(arr)
 
-i=len(arr)-1
-it = 0
-q = 0
-while True:
-    c = arr[i]
-    arr[i] = arr[i-1]
-    arr[i-1] = c
-    q+=1
-    print(arr)
-    if arr==ref and it>=1:
-        break
-    if i>(1-len(arr)):
-        i = (i-1)
-    else:
-        it+=1
-        i=len(arr)-1
+counters = [i for i in range(0,depth)]
 
-print(it)
+def loopRecursion(level):
+    global counters,depth,arr
+    if level == depth:
+        generateVariant()
+    else:      
+        for counter in range(depth): 
+            counters[counter] = (counters[counter] + 1)
+            loopRecursion(level+1)
+
+def generateVariant():
+    global arr,counters
+    print (counters)
+    variant = []
+    for level in counters:
+        # if (arr[level%len(arr)]) not in variant:        
+        variant.append((arr[level%len(arr)]))
+    print(variant)
+    
+loopRecursion(0)
