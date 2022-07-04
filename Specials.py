@@ -472,31 +472,49 @@
 # Solution.nextPermutation(list)
 
 #### Print all possible permulations of this list
-myList = [7,4,5,6,15]
-#[4,5,6,7,15] 456
-arr = myList[:]
-arr.sort()
+# myList = [1,2,5,6,5]
+# arr = myList[:]
+# arr.sort()
 
-depth = len(arr)
+# depth = len(arr)
+# q = 0
 
-counters = [i for i in range(0,depth)]
+# def loop(level,res,arr):
+#     global depth,q
+#     if level == depth:
+#         q+=1
+#         print(res)
+#         return
+#     else:
+#         for i in range(len(arr)):
+#             cpy = arr[:]
+#             cpy.remove(arr[i])
+#             res.append(str(arr[i]))
+#             loop(level+1,res,cpy) 
+            
+#             del res[-1]
+            
 
-def loopRecursion(level):
-    global counters,depth,arr
-    if level == depth:
-        generateVariant()
-    else:      
-        for counter in range(depth): 
-            counters[counter] = (counters[counter] + 1)
-            loopRecursion(level+1)
+# loop(0,[],arr)
+# print(f"\n\nThere are {q} permulations of {myList}")
 
-def generateVariant():
-    global arr,counters
-    print (counters)
-    variant = []
-    for level in counters:
-        # if (arr[level%len(arr)]) not in variant:        
-        variant.append((arr[level%len(arr)]))
-    print(variant)
+#### Binary search
+# def find(num,arr,start,end):
+#     mid = (end+start)//2
+#     if arr[mid]==num:
+#         return mid
+#     elif arr[mid]>num:
+#         return find(num,arr,start,mid-1)
+#     elif arr[mid]<num:
+#         return find(num,arr,mid+1,end)
     
-loopRecursion(0)
+
+# arr = [12,52,0,5,1,6544,21]
+# start = 0
+# end = len(arr)
+
+# num = int(input("Enter a number to search >>> "))
+# arr.sort()
+# print(arr)
+# print(find(num,arr,start,end))
+
