@@ -107,56 +107,65 @@
 
 ### Exercise 182: Spelling with Element Symbols
 ## import periodictable
-# import mendeleev
+import mendeleev
 
-# elements = {}
+elements = {}
 
-# for i in mendeleev.elements.get_all_elements():
-#     elements[i.symbol.lower()] = i.name
+for i in mendeleev.elements.get_all_elements():
+    elements[i.symbol.lower()] = i.name
 
 
-# print(elements)
+print(elements)
 
-# def spellStart(name,spelled):
-#     global elements
-#     if name=="":
-#         return spelled
-#     else:
-#         if name[:2] in elements.keys():
-#             return spellStart(name[2:],spelled+elements[name[:2]]+" ")
-#         elif name[0] in elements.keys():
-#             return spellStart(name[1:],spelled+elements[name[0]]+" ")
-#         else:
-#             return "Can not be spelled!"
+def spellStart(name,spelled):
+    global elements
+    if name=="":
+        return spelled
+    else:
+        if name[:2] in elements.keys():
+            return spellStart(name[2:],spelled+elements[name[:2]]+" ")
+        elif name[0] in elements.keys():
+            return spellStart(name[1:],spelled+elements[name[0]]+" ")
+        else:
+            return "Can not be spelled!"
 
-# def spellEnd(name,spelled):
-#     global elements
-#     if name=="":
-#         return spelled
-#     else:
-#         if name[-2:] in elements.keys():
-#             return spellEnd(name[:-2],elements[name[-2:]]+" "+spelled)
-#         elif name[-1] in elements.keys():
-#             return spellEnd(name[:-1],elements[name[-1]]+" "+spelled)
-#         else:
-#             return "Can not be spelled!"
+def spellEnd(name,spelled):
+    global elements
+    if name=="":
+        return spelled
+    else:
+        if name[-2:] in elements.keys():
+            return spellEnd(name[:-2],elements[name[-2:]]+" "+spelled)
+        elif name[-1] in elements.keys():
+            return spellEnd(name[:-1],elements[name[-1]]+" "+spelled)
+        else:
+            return "Can not be spelled!"
 
-# qStart = 0
-# qEnd = 0
+qStart = 0
+qEnd = 0
 
-# for i in elements:
-#     if spellStart(elements[i].lower(),"")!="Can not be spelled!":
-#         qStart+=1
-#         print("From start:::",elements[i],"  ",spellStart(elements[i].lower(),""))
-#     if spellEnd(elements[i].lower(),"")!="Can not be spelled!":
-#         qEnd+=1
-#         print("From end  :::", elements[i],"  ",spellEnd(elements[i].lower(),""))
+for i in elements:
+    if spellStart(elements[i].lower(),"")!="Can not be spelled!":
+        qStart+=1
+        print("From start:::",elements[i],"  ",spellStart(elements[i].lower(),""))
+    if spellEnd(elements[i].lower(),"")!="Can not be spelled!":
+        qEnd+=1
+        print("From end  :::", elements[i],"  ",spellEnd(elements[i].lower(),""))
         
-# print(f"\nTotal {qStart} element names can be spelled with element symbols from start")
-# print(f"\nTotal {qEnd} element names can be spelled with element symbols from end")
-# periodictable.core.default_table()
+print(f"\nTotal {qStart} element names can be spelled with element symbols from start")
+print(f"\nTotal {qEnd} element names can be spelled with element symbols from end")
+
 
 ### Exercise 183: Element Sequences
+# import mendeleev
+# elementNames = []
+# for i in  mendeleev.elements.get_all_elements():
+#     elementNames.append(i.name.lower())
 
+# print(elementNames)
+
+
+# def findSequence(res):
+    
 ### Exercise 184: Flatten a List
 ### Exercise 185: Run-Length Decoding
