@@ -107,80 +107,68 @@
 
 ### Exercise 182: Spelling with Element Symbols
 ## import periodictable
-import mendeleev
+# import mendeleev
 
-elements = {}
+# elements = {}
 
-for i in mendeleev.elements.get_all_elements():
-    elements[i.symbol.lower()] = i.name
+# for i in mendeleev.elements.get_all_elements():
+#     elements[i.symbol.lower()] = i.name
 
 
-print(elements)
+# print(elements)
 
-def spellStart(name,spelled):
-    global elements
-    if name=="":
-        return spelled
-    else:
-        if name[:2] in elements.keys():
-            return spellStart(name[2:],spelled+elements[name[:2]]+" ")
-        elif name[0] in elements.keys():
-            return spellStart(name[1:],spelled+elements[name[0]]+" ")
-        else:
-            return "Can not be spelled!"
-
-def spellStart1(name,spelled):
-    global elements
-    if name=="":
-        return spelled
-    else:
-        if name[0] in elements.keys():
-            return spellStart(name[1:],spelled+elements[name[0]]+" ")
-        elif name[:2] in elements.keys():
-            return spellStart(name[2:],spelled+elements[name[:2]]+" ")
-        else:
-            return "Can not be spelled!"
-
-# def spellEnd(name,spelled):
+# def spellStart(name,spelled = ''):
 #     global elements
 #     if name=="":
 #         return spelled
 #     else:
-#         if name[-2:] in elements.keys():
-#             return spellEnd(name[:-2],elements[name[-2:]]+" "+spelled)
-#         elif name[-1] in elements.keys():
-#             return spellEnd(name[:-1],elements[name[-1]]+" "+spelled)
+#         if name[:2] in elements.keys():
+#             return spellStart(name[2:],spelled+elements[name[:2]]+" ")
+#         elif name[0] in elements.keys():
+#             return spellStart(name[1:],spelled+elements[name[0]]+" ")
 #         else:
 #             return "Can not be spelled!"
 
-res = set()
+# def spellStart1(name,spelled = ''):
+#     global elements
+#     if name=="":
+#         return spelled
+#     else:
+#         if name[0] in elements.keys():
+#             return spellStart(name[1:],spelled+elements[name[0]]+" ")
+#         elif name[:2] in elements.keys():
+#             return spellStart(name[2:],spelled+elements[name[:2]]+" ")
+#         else:
+#             return "Can not be spelled!"
 
-qStart = 0
-qEnd = 0
-qStart1 = 0
-qEnd1 = 0
-for i in elements:
-    if spellStart(elements[i].lower(),"")!="Can not be spelled!":
-        qStart+=1
-        print("From start ---:::1) ",elements[i],"  ",spellStart(elements[i].lower(),""))
-        res.add(elements[i])
-    if spellStart1(elements[i].lower(),"")!="Can not be spelled!":
-        qStart+=1
-        print("From start ---:::2) ",elements[i],"  ",spellStart1(elements[i].lower(),""))
-        res.add(elements[i])
-    if spellStart(elements[i].lower()[::-1],"")!="Can not be spelled!":
-        qEnd+=1
-        print("From end  +++:::1) ", elements[i],"  ",spellStart(elements[i].lower(),""))
-        res.add(elements[i])
-    if spellStart1(elements[i].lower()[::-1],"")!="Can not be spelled!":
-        qStart+=1
-        print("From end +++:::2) ",elements[i],"  ",spellStart1(elements[i].lower(),""))
-        res.add(elements[i])
+# res = set()
+
+# qStart = 0
+# qEnd = 0
+# qStart1 = 0
+# qEnd1 = 0
+# for i in elements:
+#     if spellStart(elements[i].lower(),"")!="Can not be spelled!":
+#         qStart+=1
+#         print("From start ---:::1) ",elements[i],"  ",spellStart(elements[i].lower(),""))
+#         res.add(elements[i])
+#     if spellStart1(elements[i].lower(),"")!="Can not be spelled!":
+#         qStart+=1
+#         print("From start ---:::2) ",elements[i],"  ",spellStart1(elements[i].lower(),""))
+#         res.add(elements[i])
+#     if spellStart(elements[i].lower()[::-1],"")!="Can not be spelled!":
+#         qEnd+=1
+#         print("From end  +++:::1) ", elements[i],"  ",spellStart(elements[i].lower(),""))
+#         res.add(elements[i])
+#     if spellStart1(elements[i].lower()[::-1],"")!="Can not be spelled!":
+#         qStart+=1
+#         print("From end +++:::2) ",elements[i],"  ",spellStart1(elements[i].lower(),""))
+#         res.add(elements[i])
         
-print(f"\nTotal {qStart} element names can be spelled with element symbols from start")
-print(f"\nTotal {qEnd} element names can be spelled with element symbols from end")
-print(res)
-print(len(res))
+# print(f"\nTotal {qStart} element names can be spelled with element symbols from start")
+# print(f"\nTotal {qEnd} element names can be spelled with element symbols from end")
+# print(res)
+# print(len(res))
 ### Exercise 183: Element Sequences
 # import mendeleev
 # elementNames = []
@@ -193,5 +181,18 @@ print(len(res))
 # def findSequence(res):
     
 ### Exercise 184: Flatten a List
+def flatten(a:any, mylist:list[any]) -> list[any]:
+    if a == []:
+        return mylist
+    else:
+        if not isinstance(a[0], list):
+            mylist.append(a[0])
+            a.remove(a[0])
+            return flatten(a, mylist)
+        else:
+            mylist.extend(flatten(a[0], []))
+            a.remove(a[0])
+            return flatten(a, mylist)
+print(flatten([1, [2, 3], [4, [5, [6, 7]]], [[[8],9], [10]]], []))
 
 ### Exercise 185: Run-Length Decoding
