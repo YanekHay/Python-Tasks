@@ -270,4 +270,30 @@
 #             return flatten(a, mylist)
 # print(flatten([1, [2, 3], [4, [5, [6, 7]]], [[[8],9], [10]]], []))
 
-### Exercise 185: Run-Length Decoding
+### | Exercise 185: Run-Length Decoding
+### | Exercise 186: Run-Length Encoding
+### V #################################
+# def encode(text,res:list = []):
+#     if len(text)==0:
+#         return res
+#     elif text[0] not in res:
+#         res.append(text[0])
+#         res.append(1)
+#     else:
+#         res[res.index(text[0])+1]+=1
+#     res = encode(text[1:],res)
+#     return res
+
+# def decode(encoded:list,res:list = []):
+#     if len(encoded)==0:
+#         return res
+#     else:
+#         for i in range(encoded[1]):
+#             res.append(encoded[0])
+#         res = decode(encoded[2:] if len(encoded)>2 else [])
+#         return res
+# encoded = input("Enter a text >>> ")
+# encoded = encode(encoded)
+# print(f"Your text encoded    ---> {encoded}")
+# print(f"The encoding decoded ---> {decode(encoded)}")
+# print("abac"[0:0])
