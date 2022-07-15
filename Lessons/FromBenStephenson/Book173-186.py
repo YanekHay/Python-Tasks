@@ -104,6 +104,56 @@
 
 
 ### Exercise 181: Possible Change 
+## 1 Nickel is  (5/100) $
+## 1 Dime is    (10/100)$
+## 1 Quarter is (25/100)$
+# coins = {0.05:"Nickel",
+#          0.1:"Dime",
+#          0.25:"Quarter"}
+
+
+# results = []
+# res = []
+
+# def findway(total,d):
+#     global results,res,count
+    
+#     if total == 0:
+#         if (len(res)==count):     
+#                 results.append(res)
+#         return
+#     elif total <0:
+#         res=[]
+#         return 
+#     else:
+#         if (round(total/0.25)==count-d or round((total-0.25)/0.1)+d+1>=count or round((total-0.25)/0.05)+d+1>=count) and ((d>0 and res[d-1]==0.25) or d==0) and total-0.25>= 0:
+#             res.append(0.25)
+#             findway(round(total-0.25,8),d+1)
+            
+#         # print(round((total/0.1)),round((total-0.1)/0.05),count-d)
+
+#         if (round(total/0.1)==count-d or round((total-0.1)/0.05)+d+1>=count) and ((d>0 and res[d-1]>=0.1) or d==0) and total-0.1 >= 0:
+#             if d==0:
+#                 res = []
+#             else:
+#                 res = res[:d]
+#             res.append(0.1)
+#             findway(round(total-0.1,8),d+1)
+#         # print(round(total/0.05),count-d)
+#         if  round(total/0.05)==count-d and ((d>0 and res[d-1]>=0.05) or len(res)==0) and total-0.05 >= 0:
+#             if d==0:
+#                 res = []
+#             else:
+#                 res = res[:d]
+
+#             res.append(0.05)
+#             findway(round(total-0.05,8),d+1)
+
+# count = 1000
+# money = 200
+# findway(money,0)
+# for i in range(len(results)):
+#     print (f"{i}.\n\tQuarter: {results[i].count(0.25)}\n\tDime: {results[i].count(0.1)}\n\tNickel: {results[i].count(0.05)}\n")
 
 ### Exercise 182: Spelling with Element Symbols
 ## import periodictable
@@ -169,30 +219,55 @@
 # print(f"\nTotal {qEnd} element names can be spelled with element symbols from end")
 # print(res)
 # print(len(res))
-### Exercise 183: Element Sequences
+## Exercise 183: Element Sequences
 # import mendeleev
-# elementNames = []
+# ######### With Dictionary 
+# elementNames = {}
 # for i in  mendeleev.elements.get_all_elements():
-#     elementNames.append(i.name.lower())
+#     el = i.name.lower()
+#     if el[0] in elementNames.keys():
+#         elementNames[el[0]].append(el)
+#     else:
+#         elementNames[el[0]] = [el]
+        
+# maxchain=[]
+# def makechain(chain:list[str],elnames:dict = elementNames):
+#     global maxchain
+#     elnames[chain[-1][0]].remove(chain[-1])
+#     if len(elnames[chain[-1][0]])==0 or len(elnames[chain[-1][-1]])==0:
+#         if len(maxchain)<len(chain):
+#             maxchain = chain[:]
+#     else:
+#         for i in range(len(elnames[chain[-1][-1]])):
+#             if len(elnames[chain[-1][-1]])!=0:
+#                 chain.append(elnames[chain[-1][-1]][0])
+#                 makechain(chain,elnames)
+#                 del chain[-1]
 
-# print(elementNames)
+# while True:
+#     first = input("Enter a chemical element >>> ").lower()
+#     if first in elementNames[first[0]]:
+#         makechain([first],elementNames)
+#         break
+#     else:
+#         print("Wrong input, try again: \n")
+  
+# print(maxchain,len(maxchain))
 
 
-# def findSequence(res):
-    
 ### Exercise 184: Flatten a List
-def flatten(a:any, mylist:list[any]) -> list[any]:
-    if a == []:
-        return mylist
-    else:
-        if not isinstance(a[0], list):
-            mylist.append(a[0])
-            a.remove(a[0])
-            return flatten(a, mylist)
-        else:
-            mylist.extend(flatten(a[0], []))
-            a.remove(a[0])
-            return flatten(a, mylist)
-print(flatten([1, [2, 3], [4, [5, [6, 7]]], [[[8],9], [10]]], []))
+# def flatten(a:any, mylist:list[any]) -> list[any]:
+#     if a == []:
+#         return mylist
+#     else:
+#         if not isinstance(a[0], list):
+#             mylist.append(a[0])
+#             a.remove(a[0])
+#             return flatten(a, mylist)
+#         else:
+#             mylist.extend(flatten(a[0], []))
+#             a.remove(a[0])
+#             return flatten(a, mylist)
+# print(flatten([1, [2, 3], [4, [5, [6, 7]]], [[[8],9], [10]]], []))
 
 ### Exercise 185: Run-Length Decoding
