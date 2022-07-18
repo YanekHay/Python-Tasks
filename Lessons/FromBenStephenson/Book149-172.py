@@ -503,9 +503,9 @@ def getMissSpellings(text):
             a = words[i]
         except:
             errors.append(i)
-    print(textWords)
     return errors
 
-print(f"This(these) word(s) is(are) spelled in a wrong way {getMissSpellings(input('Enter a text >>> '))}")
+wrongs = getMissSpellings(input('Enter a text >>> '))
+print(f"This(these) word(s) is(are) spelled in a wrong way {wrongs}" if wrongs!=[] else "Everything is correct" )
     
 
