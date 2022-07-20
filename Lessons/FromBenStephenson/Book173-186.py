@@ -107,9 +107,9 @@
 ## 1 Nickel is  (5/100) $
 ## 1 Dime is    (10/100)$
 ## 1 Quarter is (25/100)$
-# coins = {0.05:"Nickel",
-#          0.1:"Dime",
-#          0.25:"Quarter"}
+## coins = {0.05:"Nickel",
+##          0.1:"Dime",
+##          0.25:"Quarter"}
 
 
 # results = []
@@ -149,8 +149,8 @@
 #             res.append(0.05)
 #             findway(round(total-0.05,8),d+1)
 
-# count = 1000
-# money = 200
+# count = 102
+# money = 5
 # findway(money,0)
 # for i in range(len(results)):
 #     print (f"{i}.\n\tQuarter: {results[i].count(0.25)}\n\tDime: {results[i].count(0.1)}\n\tNickel: {results[i].count(0.05)}\n")

@@ -25,23 +25,23 @@
 #     print(numbers[closestIndex],"-------",closestIndex)
 
 ############ Slide x.6 Find the index
-# order = [-1,150,-1,162,195,-1,1000,10,-1,180,130]
-# people = []
-# treeIndexes = []
+order = [-1,150,-1,162,195,-1,1000,10,-1,180,130]
+people = []
+treeIndexes = []
 
-# for i in range(len(order)):
-#     if order[i]==-1:
-#         treeIndexes.append(i)
-#     else:
-#         people.append(order[i])
+for i in range(len(order)):
+    if order[i]==-1:
+        treeIndexes.append(i)
+    else:
+        people.append(order[i])
         
-# people.sort()
+people.sort()
 
-# step = len(treeIndexes)
-# for i in treeIndexes:
-#     people.insert(i,-1)
+step = len(treeIndexes)
+for i in treeIndexes:
+    people.insert(i,-1)
     
-# print(people)
+print(people)
 ############ Slide 16.1
 # dict = {
 #     1:3,

@@ -478,34 +478,83 @@ fileLocation = "C:\\Users\\Yanek\\Dropbox\\Programming\\Python\\Codes\\Python-Ta
 # print(getCommon(startYear,endYear,"Boys"),getCommon(startYear,endYear,"Girls"))
 
 ### Exercise 167: Spell Checker
-def getCleanWords(text:str)->list:
-    punctuation = "-!@#$%^&*()_+/*<>?~`:;,.\n"
-    words = []
-        ### Getting all words
-    for mark in punctuation:
-        text = text.replace(mark,"")
-    text = text.split(" ")
-    nline = []
-    for i in text:
-        if i!='':
-            nline.append(i)
+# def getCleanWords(text:str)->list:
+#     punctuation = "-!@#$%^&*()_+/*<>?~`:;,.\n"
+#     words = []
+#         ### Getting all words
+#     for mark in punctuation:
+#         text = text.replace(mark,"")
+#     text = text.split(" ")
+#     nline = []
+#     for i in text:
+#         if i!='':
+#             nline.append(i)
             
-    words.extend(nline)
-    return words
+#     words.extend(nline)
+#     return words
         
-def getMissSpellings(text):
-    with open(fileLocation+"wiki-100k.txt","rt",encoding="utf8") as wiki:
-        words = {word.strip():0 for word in wiki.readlines()}
-    textWords = getCleanWords(text)
-    errors = []
-    for i in textWords:
-        try:
-            a = words[i]
-        except:
-            errors.append(i)
-    return errors
+# def getMissSpellings(text):
+#     with open(fileLocation+"wiki-100k.txt","rt",encoding="utf8") as wiki:
+#         words = {word.strip():0 for word in wiki.readlines()}
+#     textWords = getCleanWords(text)
+#     errors = []
+#     for i in textWords:
+#         try:
+#             a = words[i]
+#         except:
+#             errors.append(i)
+#     return errors
 
-wrongs = getMissSpellings(input('Enter a text >>> '))
-print(f"This(these) word(s) is(are) spelled in a wrong way {wrongs}" if wrongs!=[] else "Everything is correct" )
-    
+# wrongs = getMissSpellings(input('Enter a text >>> '))
+# print(f"This(these) word(s) is(are) spelled in a wrong way {wrongs}" if wrongs!=[] else "Everything is correct" )
 
+### Exercise 168: RepeatedWords
+def getCleanWords(filename:str)->list:
+    punctuation = "[]{}|-!@#$%^&*()_+/*<>?~`':;,.\n"
+    with open(filename,"rt") as file:
+        f = file.readlines()
+    words = {}
+        ### Getting all words
+    linenumber = 1
+    for line in f:
+        for mark in punctuation:
+            line = line.replace(mark," ")
+        line = line.split(" ") 
+        nline = []       
+        for i in line:
+            if i!='':
+                nline.append(i)
+        if len(nline)!=0:
+            words[linenumber] = (nline)
+        linenumber+=1
+    return words
+
+def checkRepetitions(words):
+    repetitions = {}
+    for i in words:
+        for j in range(0,len(words[i])):
+                                                                                                                                                    
+            nextj = 0 if (j+1)==len(words[i]) else j+1
+            try:
+                nexti = i if j!=len(words[i])-1 else list(words.keys())[list(words.keys()).index(i)+1]
+            except:
+                break
+            else:
+                if words[i][j]==words[nexti][nextj]:
+                    try:
+                        repetitions[i]
+                    except:
+                        repetitions[i] = [words[i][j]]
+                    else:
+                        repetitions[i].append(words[i][j])                    
+    return repetitions
+
+
+
+words = getCleanWords(fileLocation+"CoralReef.txt")
+print(words)
+repetitions = checkRepetitions(words)
+if repetitions!={}:
+    print("You have repetitions ")
+    for i in repetitions:
+        print()
