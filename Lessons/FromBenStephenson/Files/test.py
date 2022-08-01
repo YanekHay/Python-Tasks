@@ -25,3 +25,10 @@ while True:
                         break
             else:
                 print("Wrong grade is entered!")
+                
+def uncommented():
+    print(5)
+
+#A comment
+def withComment():
+    print(10)

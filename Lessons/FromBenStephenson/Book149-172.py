@@ -1,3 +1,6 @@
+from tempfile import TemporaryFile
+
+
 fileLocation = "C:\\Users\\Yanek\\Dropbox\\Programming\\Python\\Codes\\Python-Tasks\\Lessons\\FromBenStephenson\\Files\\"
 
 
@@ -508,53 +511,176 @@ fileLocation = "C:\\Users\\Yanek\\Dropbox\\Programming\\Python\\Codes\\Python-Ta
 # wrongs = getMissSpellings(input('Enter a text >>> '))
 # print(f"This(these) word(s) is(are) spelled in a wrong way {wrongs}" if wrongs!=[] else "Everything is correct" )
 
-### Exercise 168: RepeatedWords
-def getCleanWords(filename:str)->list:
-    punctuation = "[]{}|-!@#$%^&*()_+/*<>?~`':;,.\n"
-    with open(filename,"rt") as file:
-        f = file.readlines()
-    words = {}
-        ### Getting all words
-    linenumber = 1
-    for line in f:
-        for mark in punctuation:
-            line = line.replace(mark," ")
-        line = line.split(" ") 
-        nline = []       
-        for i in line:
-            if i!='':
-                nline.append(i)
-        if len(nline)!=0:
-            words[linenumber] = (nline)
-        linenumber+=1
-    return words
+# ### Exercise 168: RepeatedWords
+# def getCleanWords(filename:str)->list:
+#     punctuation = "[]{}|-!@#$%^&*()_+/*<>?~`':;,\n"
+#     with open(filename,"rt") as file:
+#         f = file.readlines()
+#     words = {}
+#         ### Getting all words
+#     linenumber = 1
+#     for line in f:
+#         for mark in punctuation:
+#             line = line.replace(mark," ")
+#         line = line.split(" ") 
+#         nline = []       
+#         for i in line:
+#             if i!='':
+#                 if "." in i:
+#                     try:
+#                         i = float(i)
+#                     except:
+#                         None
+#                     else:
+#                         nline.append(i)
+#                 else:
+#                     nline.append(i)
+#         if len(nline)!=0:
+#             words[linenumber] = (nline)
+#         linenumber+=1
+#     return words
 
-def checkRepetitions(words):
-    repetitions = {}
-    for i in words:
-        for j in range(0,len(words[i])):
-                                                                                                                                                    
-            nextj = 0 if (j+1)==len(words[i]) else j+1
-            try:
-                nexti = i if j!=len(words[i])-1 else list(words.keys())[list(words.keys()).index(i)+1]
-            except:
-                break
-            else:
-                if words[i][j]==words[nexti][nextj]:
-                    try:
-                        repetitions[i]
-                    except:
-                        repetitions[i] = [words[i][j]]
-                    else:
-                        repetitions[i].append(words[i][j])                    
-    return repetitions
+# def checkRepetitions(words):
+#     repetitions = {}
+#     for i in words:
+#         for j in range(0,len(words[i])):                                                                                                                                                
+#             prevj = j-1
+#             try:
+#                 previ = list(words.keys())[list(words.keys()).index(i)-1] if j==0 else i
+#             except:
+#                 break
+#             else:
+#                 if words[i][j]==words[previ][prevj]:
+#                     try:
+#                         repetitions[i]
+#                     except:
+#                         repetitions[i] = [words[i][j]]
+#                     else:
+#                         if words[i][j] not in repetitions[i]:
+#                             repetitions[i].append(words[i][j])                                       
+#     return repetitions
 
 
 
-words = getCleanWords(fileLocation+"CoralReef.txt")
-print(words)
-repetitions = checkRepetitions(words)
-if repetitions!={}:
-    print("You have repetitions ")
-    for i in repetitions:
-        print()
+# words = getCleanWords(fileLocation+"CoralReef.txt")
+# repetitions = checkRepetitions(words)
+# if repetitions!={}:
+#     print("You have repetitions         |\n\
+#                              ⩔")
+#     for i in repetitions:
+#         print(f"\t\t     on line {i}. {repetitions[i]}")
+
+
+### Exercise 169: Redacting Text in a File
+# def redact(filename,sensitives):
+#     with open(sensitives,"rt") as s:
+#         sensitivewords = s.readlines()
+#     for i in range(len(sensitivewords )):
+#         sensitivewords[i] = sensitivewords[i].strip().lower()
+        
+#     with open(filename,"rt",encoding="utf8") as f:
+#         mylist = f.readlines()
+#     text = ""
+#     for i in mylist:
+#         text+=i
+#     for word in sensitivewords:
+#         for i in range(0,len(text)-len(word)):
+#             if text[i:i+len(word)].lower()==word:
+#                 text = text[:i]+"*"*len(word)+text[i+len(word)+1:] 
+#     with open(filename[:-4]+"redacted.txt","w",encoding="utf8") as wr:    
+#         wr.write(text)
+
+# redact(fileLocation+"GreatBritain.txt",fileLocation+"SensitiveWords.txt")
+
+###Exercise 170:Missing Comments
+# def getUncommented(filename):
+#     with open(filename,"rt",encoding = "utf8") as f:
+#         lines = f.readlines()
+#     res = []
+#     for i in range(1,len(lines)):
+        
+#         if lines[i].strip()[0:4]=="def ":
+#             try:
+#                 lines[i-1].strip()[0]
+#             except:
+#                 res.append(lines[i].strip()[4:lines[i].index("(")])
+#             else:
+#                 if lines[i-1].strip()[0]!="#":
+#                     res.append(lines[i].strip()[4:lines[i].index("(")])
+#     return res
+
+# print(getUncommented(fileLocation+"test.py"))
+            
+###Exercise 171: Consistent Line Lengths
+# def wrapText(filename,charCount):
+#     with open(filename,"rt",encoding="utf8") as f:
+#         lines:list[list] = f.readlines()
+#     if len(lines)==0:
+#         return ""
+#     else:
+#         words = []
+#         for line in lines:
+#             line = line[:-1]
+#             words.extend(line.split(" "))
+#         newlines = []
+#         line = ""
+#         for word in range(len(words)):
+#             if len(line+words[word])>charCount:
+#                 newlines.append(line[:-1])
+#                 line = words[word]+" "
+#                 if word == len(words)-1:
+#                     newlines.append(line[:-1])
+#             else:
+#                 line+=words[word]+" "
+#         return newlines      
+    
+# with open(fileLocation+"fixedsize.txt","w",encoding="utf8") as f:
+#     for line in wrapText(fileLocation+"text.txt",50):
+#         f.write(line+"\n")
+
+###Exercise 172:Words with Six Vowels in Order
+# def getCleanWords(filename:str)->list:
+#     punctuation = "-!@#$%^&*()_+/*<>?~`':;,.\n"
+#     with open(filename,"rt") as file:
+#         f = file.readlines()
+#     words = []
+#         ### Getting all words
+#     for line in f:
+#         for mark in punctuation:
+#             line = line.replace(mark,"")
+#         line = line.split(" ")
+#         nline = []
+#         for i in line:
+#             if i!='':
+#                 nline.append(i)
+#         words.extend(nline)
+#     return words
+
+# def findWord(filename,words,order):    
+#     res = []
+#     for word in words:
+#         ord = ""
+#         if len(word)>=6:
+#             for letter in word:
+#                 if letter.upper() in order:
+#                     ord+=letter.upper()
+#                     if len(order)>6:
+#                         break
+#                     elif ord==order:
+#                         res.append(word)
+#                         break
+                    
+#     return res
+
+
+# filename = input("Enter the file name >>> ")
+# try:
+#     words = getCleanWords(fileLocation+filename)
+#     print(words)
+#     print(findWord(fileLocation+filename,words,"AEIOUY"))
+# except:
+#     print("Wrong file name entered!")
+
+
+
+
