@@ -51,6 +51,18 @@ def Fill(funcBoard:list[list],cellX:int,cellY:int)->list[list]:
     return res
 
 
-
-print(Fill(board,0,0))
-     
+res = Fill(board,0,0)
+text = ""
+for i in range(len(res)):
+    if (i)%3==0:
+        text+=f"{'-'*18}\n"
+    for j in range(len(res[i])):
+        text += f"{res[i][j]}"
+        if (j+1)%3==0:
+            text+="|"
+        else:
+            text+=" "
+        if j==8:
+            text+="\n"
+            
+print(text)

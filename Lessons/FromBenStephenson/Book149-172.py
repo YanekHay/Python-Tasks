@@ -1,5 +1,7 @@
 from tempfile import TemporaryFile
 
+from sqlalchemy import null
+
 
 fileLocation = "C:\\Users\\Yanek\\Dropbox\\Programming\\Python\\Codes\\Python-Tasks\\Lessons\\FromBenStephenson\\Files\\"
 
@@ -683,4 +685,4 @@ fileLocation = "C:\\Users\\Yanek\\Dropbox\\Programming\\Python\\Codes\\Python-Ta
 
 
 
-
+print(int(null)+10)
